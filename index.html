@@ -42,6 +42,7 @@
     <nav class="bg-white shadow sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4">
         <ul class="flex justify-center space-x-8 py-4">
+          <li><a href="#about" class="text-gray-700 hover:text-blue-600" data-ko="자기소개" data-en="About">자기소개</a></li>
           <li><a href="#features" class="text-gray-700 hover:text-blue-600" data-ko="주요 기능" data-en="Features">주요 기능</a></li>
           <li><a href="#usage" class="text-gray-700 hover:text-blue-600" data-ko="사용법" data-en="Usage">사용법</a></li>
           <li><a href="#contact" class="text-gray-700 hover:text-blue-600" data-ko="문의하기" data-en="Contact">문의하기</a></li>
@@ -51,6 +52,39 @@
 
     <!-- 메인 콘텐츠 -->
     <main class="space-y-24 px-4 md:px-12 py-12">
+      <!-- 자기소개 Section -->
+      <section id="about" class="fade-in">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
+          <!-- 좌측 이미지 -->
+          <div class="w-48 h-48 flex-shrink-0">
+            <img src="안녕하세요.PNG" alt="안녕하세요" class="w-full h-full object-cover rounded-full shadow-lg" />
+          </div>
+          <!-- 우측 자기소개 텍스트 -->
+          <div class="text-center md:text-left">
+            <h2 class="text-4xl font-bold mb-4" data-ko="안녕하세요, Front-End 예비 개발자입니다." data-en="Hello, I am an aspiring Front-End Developer.">안녕하세요, Front-End 예비 개발자입니다.</h2>
+            <p
+              class="text-lg mb-4"
+              data-ko="이쁜 사이트들을 참고하여 TailwindCSS를 편하게 작성하기 위하여 만들었습니다."
+              data-en="I created this project to easily work with TailwindCSS while drawing inspiration from beautiful sites."
+            >
+              이쁜 사이트들을 참고하여 TailwindCSS를 편하게 작성하기 위하여 만들었습니다.
+            </p>
+            <div class="space-x-4">
+              <a
+                href="https://github.com/kmw9904/kmw9904"
+                target="_blank"
+                class="inline-block bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition duration-300"
+                data-ko="깃허브"
+                data-en="GitHub"
+              >
+                깃허브
+              </a>
+              <a href="mailto:skqjahjakskxl@gmail.com" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500 transition duration-300" data-ko="구글" data-en="Gmail">구글</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Features Section -->
       <section id="features" class="fade-in">
         <div class="max-w-5xl mx-auto">
@@ -111,23 +145,20 @@
                 Chrome 웹 스토어에서 설치 후 바로 사용 가능합니다.
               </p>
             </div>
-            <!-- 기존 사용법 섹션 내 카드들 아래에 추가 -->
+            <!-- 사용법 섹션 내 동영상 카드들 -->
             <div class="space-y-8 mt-12">
               <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
                 <h3 class="text-2xl font-bold mb-3" data-ko="요소 분석 및 변환 동영상" data-en="Element Analysis & Conversion Video">요소 분석 및 변환 동영상</h3>
                 <div class="relative overflow-hidden rounded-lg">
-                  <!-- 여기에 실제 동영상 URL 또는 임베드 코드를 넣으세요 -->
                   <video controls class="w-full">
                     <source src="KakaoTalk_Recording_20250221_220702.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
-                  <!-- 혹은 YouTube 임베드 코드도 사용 가능 -->
                 </div>
               </div>
               <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
                 <h3 class="text-2xl font-bold mb-3" data-ko="CSS 변환 동영상" data-en="CSS Conversion Video">CSS 변환 동영상</h3>
                 <div class="relative overflow-hidden rounded-lg">
-                  <!-- 여기에 실제 동영상 URL 또는 임베드 코드를 넣으세요 -->
                   <video controls class="w-full">
                     <source src="KakaoTalk_Recording_20250221_220843.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
@@ -144,12 +175,16 @@
         <div class="max-w-3xl mx-auto">
           <h2 class="text-4xl font-semibold mb-8" data-ko="문의하기" data-en="Contact">문의하기</h2>
           <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+            <!-- 연락주세요 이미지 (상단 배너식으로 추가) -->
+            <div class="mb-6">
+              <img src="연락주세요.PNG" alt="연락주세요" class="w-full object-cover rounded-lg shadow" />
+            </div>
             <p class="mb-4 text-lg" data-ko="궁금한 점이 있으면 언제든지 문의 주세요! 😊" data-en="Feel free to reach out with any questions! 😊">궁금한 점이 있으면 언제든지 문의 주세요! 😊</p>
             <form action="mailto:your_email@example.com" method="post" enctype="text/plain" class="space-y-4">
               <input type="text" name="name" placeholder="이름" required class="w-full p-3 border border-gray-300 rounded" />
               <input type="email" name="email" placeholder="이메일" required class="w-full p-3 border border-gray-300 rounded" />
               <textarea name="message" rows="4" placeholder="문의 내용" required class="w-full p-3 border border-gray-300 rounded"></textarea>
-              <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-500 transition duration-300">메일 보내기 ✉️</button>
+              <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-500 transition duration-300" data-ko="메일 보내기 ✉️" data-en="Send Email ✉️">메일 보내기 ✉️</button>
             </form>
           </div>
         </div>
@@ -184,6 +219,7 @@
       const langENButton = document.getElementById("lang-en");
 
       function setLanguage(lang) {
+        // 자기소개, 주요 기능, 사용법, 문의하기 등 모든 data 속성 적용
         document.querySelectorAll("[data-ko]").forEach((el) => {
           if (lang === "ko") {
             el.innerText = el.getAttribute("data-ko");
