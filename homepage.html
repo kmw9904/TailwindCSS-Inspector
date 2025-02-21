@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tailwind CSS Inspector</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      /* 커스텀 애니메이션 (Tailwind의 @apply 활용 불가한 경우 순수 CSS로) */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body class="font-inter bg-gray-50 text-gray-800">
+    <!-- 헤더 섹션 -->
+    <header class="bg-gradient-to-r from-blue-700 via-purple-600 to-pink-500 text-white py-16 px-6 text-center shadow-2xl">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Tailwind CSS Inspector</h1>
+      <p class="text-xl md:text-2xl mb-6">CSS를 Tailwind CSS 유틸리티 클래스로 자동 변환하는 혁신적인 Chrome Extension 😎✨</p>
+      <!-- 언어 토글 버튼 -->
+      <div class="flex justify-center space-x-4">
+        <button id="lang-ko" class="bg-blue-500 hover:bg-blue-400 px-4 py-2 rounded-full transition duration-300">🇰🇷 한글</button>
+        <button id="lang-en" class="bg-blue-500 hover:bg-blue-400 px-4 py-2 rounded-full transition duration-300">🇺🇸 English</button>
+      </div>
+    </header>
+
+    <!-- 내비게이션 -->
+    <nav class="bg-white shadow sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <ul class="flex justify-center space-x-8 py-4">
+          <li><a href="#features" class="text-gray-700 hover:text-blue-600" data-ko="주요 기능" data-en="Features">주요 기능</a></li>
+          <li><a href="#usage" class="text-gray-700 hover:text-blue-600" data-ko="사용법" data-en="Usage">사용법</a></li>
+          <li><a href="#contact" class="text-gray-700 hover:text-blue-600" data-ko="문의하기" data-en="Contact">문의하기</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="space-y-24 px-4 md:px-12 py-12">
+      <!-- Features Section -->
+      <section id="features" class="fade-in">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-semibold mb-8" data-ko="주요 기능" data-en="Features">주요 기능</h2>
+          <div class="grid gap-8 md:grid-cols-2">
+            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+              <h3 class="text-2xl font-bold mb-3" data-ko="자동 CSS 분석 및 변환" data-en="Auto CSS Analysis & Conversion">자동 CSS 분석 및 변환</h3>
+              <p
+                class="text-lg leading-relaxed"
+                data-ko="페이지의 요소 위에 마우스를 올리면 하이라이트되고, 클릭 시 해당 CSS가 Tailwind 유틸리티 클래스로 변환됩니다."
+                data-en="Hover over elements to highlight and click to convert their CSS into Tailwind classes."
+              >
+                페이지의 요소 위에 마우스를 올리면 하이라이트되고, 클릭 시 해당 CSS가 Tailwind 유틸리티 클래스로 변환됩니다.
+              </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+              <h3 class="text-2xl font-bold mb-3" data-ko="AI 기반 상세 설명" data-en="AI-powered Detailed Explanations">AI 기반 상세 설명</h3>
+              <p
+                class="text-lg leading-relaxed"
+                data-ko="OpenAI GPT-4o를 활용하여 CSS 변환 과정을 단계별로 상세하게 설명해 드립니다."
+                data-en="Get step-by-step explanations of the conversion process using OpenAI GPT-4o."
+              >
+                OpenAI GPT-4o를 활용하여 CSS 변환 과정을 단계별로 상세하게 설명해 드립니다.
+              </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+              <h3 class="text-2xl font-bold mb-3" data-ko="실시간 CSS → Tailwind 변환" data-en="Real-time CSS → Tailwind Conversion">실시간 CSS → Tailwind 변환</h3>
+              <p
+                class="text-lg leading-relaxed"
+                data-ko="일반 CSS를 입력하면 AI가 이를 Tailwind CSS 클래스로 즉시 변환해줍니다."
+                data-en="Instantly convert your custom CSS into Tailwind classes using AI."
+              >
+                일반 CSS를 입력하면 AI가 이를 Tailwind CSS 클래스로 즉시 변환해줍니다.
+              </p>
+            </div>
+            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+              <h3 class="text-2xl font-bold mb-3" data-ko="반응형 & 드래그 UI" data-en="Responsive & Draggable UI">반응형 & 드래그 UI</h3>
+              <p
+                class="text-lg leading-relaxed"
+                data-ko="사이드바를 드래그하여 크기를 조절하고, 토글 버튼으로 쉽게 열고 닫을 수 있습니다."
+                data-en="Easily resize and toggle the sidebar to suit your workflow."
+              >
+                사이드바를 드래그하여 크기를 조절하고, 토글 버튼으로 쉽게 열고 닫을 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Usage Section -->
+      <section id="usage" class="fade-in">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-semibold mb-8" data-ko="사용법" data-en="Usage">사용법</h2>
+          <div class="space-y-8">
+            <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+              <h3 class="text-2xl font-bold mb-3" data-ko="확장 프로그램 설치" data-en="Install the Extension">확장 프로그램 설치</h3>
+              <p class="text-lg" data-ko="Chrome 웹 스토어에서 설치 후 바로 사용 가능합니다." data-en="Install from the Chrome Web Store and start immediately.">
+                Chrome 웹 스토어에서 설치 후 바로 사용 가능합니다.
+              </p>
+            </div>
+            <!-- 기존 사용법 섹션 내 카드들 아래에 추가 -->
+            <div class="space-y-8 mt-12">
+              <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+                <h3 class="text-2xl font-bold mb-3" data-ko="요소 분석 및 변환 동영상" data-en="Element Analysis & Conversion Video">요소 분석 및 변환 동영상</h3>
+                <div class="relative overflow-hidden rounded-lg">
+                  <!-- 여기에 실제 동영상 URL 또는 임베드 코드를 넣으세요 -->
+                  <video controls class="w-full">
+                    <source src="your-element-analysis-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <!-- 혹은 YouTube 임베드 코드도 사용 가능 -->
+                </div>
+              </div>
+              <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1">
+                <h3 class="text-2xl font-bold mb-3" data-ko="CSS 변환 동영상" data-en="CSS Conversion Video">CSS 변환 동영상</h3>
+                <div class="relative overflow-hidden rounded-lg">
+                  <!-- 여기에 실제 동영상 URL 또는 임베드 코드를 넣으세요 -->
+                  <video controls class="w-full">
+                    <source src="your-css-conversion-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="fade-in">
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-4xl font-semibold mb-8" data-ko="문의하기" data-en="Contact">문의하기</h2>
+          <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+            <p class="mb-4 text-lg" data-ko="궁금한 점이 있으면 언제든지 문의 주세요! 😊" data-en="Feel free to reach out with any questions! 😊">궁금한 점이 있으면 언제든지 문의 주세요! 😊</p>
+            <form action="mailto:your_email@example.com" method="post" enctype="text/plain" class="space-y-4">
+              <input type="text" name="name" placeholder="이름" required class="w-full p-3 border border-gray-300 rounded" />
+              <input type="email" name="email" placeholder="이메일" required class="w-full p-3 border border-gray-300 rounded" />
+              <textarea name="message" rows="4" placeholder="문의 내용" required class="w-full p-3 border border-gray-300 rounded"></textarea>
+              <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-500 transition duration-300">메일 보내기 ✉️</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-6">
+      <p class="text-lg">&copy; 2025 Tailwind CSS Inspector. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript: 스크롤 애니메이션, 언어 토글 -->
+    <script>
+      // IntersectionObserver를 사용하여 fade-in 효과 적용
+      document.querySelectorAll(".fade-in").forEach((section) => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        observer.observe(section);
+      });
+
+      // 언어 토글 기능
+      const langKOButton = document.getElementById("lang-ko");
+      const langENButton = document.getElementById("lang-en");
+
+      function setLanguage(lang) {
+        document.querySelectorAll("[data-ko]").forEach((el) => {
+          if (lang === "ko") {
+            el.innerText = el.getAttribute("data-ko");
+          }
+        });
+        document.querySelectorAll("[data-en]").forEach((el) => {
+          if (lang === "en") {
+            el.innerText = el.getAttribute("data-en");
+          }
+        });
+      }
+
+      langKOButton.addEventListener("click", () => setLanguage("ko"));
+      langENButton.addEventListener("click", () => setLanguage("en"));
+
+      // 초기 언어는 한국어로 설정
+      setLanguage("ko");
+    </script>
+  </body>
+</html>
